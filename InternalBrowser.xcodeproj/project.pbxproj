@@ -207,6 +207,7 @@
 				TargetAttributes = {
 					C8F9167B1D2E1B8F00129D49 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = G7GJCTBU7U;
 					};
 					C8F916941D2E1B8F00129D49 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -413,10 +414,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = InternalBrowser/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ideal.InternalBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -424,10 +429,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = InternalBrowser/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ideal.InternalBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -496,6 +505,7 @@
 				C8F916AB1D2E1B8F00129D49 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C8F916AC1D2E1B8F00129D49 /* Build configuration list for PBXNativeTarget "InternalBrowserTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +514,7 @@
 				C8F916AE1D2E1B8F00129D49 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C8F916AF1D2E1B8F00129D49 /* Build configuration list for PBXNativeTarget "InternalBrowserUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +523,7 @@
 				C8F916B11D2E1B8F00129D49 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
