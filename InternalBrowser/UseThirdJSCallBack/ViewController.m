@@ -3,11 +3,11 @@
 //  InternalBrowser
 //
 //  Created by ideal on 2016/7/7.
-//  Copyright © 2016年 New Idea. All rights reserved.
+//  Copyright © 2016年 New Ideal. All rights reserved.
 //
 
 #import "ViewController.h"
-#import <WebKit/WKWebView.h>
+#import <WebKit/WebKit.h>
 #import "WKWebViewJavascriptBridge.h"
 
 #define kUrl @"https://www.baidu.com"
@@ -39,6 +39,9 @@
     [self.webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
     
     self.bridge = [WKWebViewJavascriptBridge bridgeForWebView:self.webView];
+    // 开启日志，方便调试
+    [WKWebViewJavascriptBridge enableLogging];
+    
     [_bridge setWebViewDelegate:self];
     
     [_bridge callHandler:@"OC_Call_JS_Methods" data:@{@"OC_Data":@"I come form OC"} responseCallback:^(id responseData) {
@@ -61,12 +64,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+}
+
 - (void)dealloc{
-    [(WKWebView *)self.view removeObserver:self forKeyPath:@"estimatedProgress"];
+    [self.webView removeObserver:self forKeyPath:@"estimatedProgress"];
+    NSLog(@"-----内存释放了");
 }
 
 - (void)loadHtml{
-    NSString* htmlPath = [[NSBundle mainBundle] pathForResource:@"ExampleApp" ofType:@"html"];
+    NSString* htmlPath = [[NSBundle mainBundle] pathForResource:@"ThirdJSExample" ofType:@"html"];
     NSString* appHtml = [NSString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:nil];
     self.url = [NSURL fileURLWithPath:htmlPath];
     [self.webView loadHTMLString:appHtml baseURL:self.url];

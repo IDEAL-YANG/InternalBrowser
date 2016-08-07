@@ -3,7 +3,7 @@
 //  InternalBrowserTests
 //
 //  Created by ideal on 2016/7/7.
-//  Copyright © 2016年 New Idea. All rights reserved.
+//  Copyright © 2016年 New Ideal. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>

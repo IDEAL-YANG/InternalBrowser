@@ -1,25 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16A239j" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3yb-EN-aTd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16A254g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3yb-EN-aTd">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Item-->
         <scene sceneID="67w-qx-Kow">
             <objects>
                 <navigationController id="3yb-EN-aTd" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="xBz-IX-pLD"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NPt-gW-xaH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Eyd-Ct-i2G"/>
+                        <segue destination="CLR-Eq-Wfm" kind="relationship" relationship="rootViewController" id="tDG-Ws-ooA"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2dk-Nt-n8w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-103" y="412"/>
+            <point key="canvasLocation" x="-449" y="223"/>
+        </scene>
+        <!--Original View Controller-->
+        <scene sceneID="pKk-gw-TAc">
+            <objects>
+                <viewController id="ioN-yo-QLW" customClass="OriginalViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kLD-08-7df"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ik3-oz-nHP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="t0e-gu-wCc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="XbV-gj-IAe"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="568"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="We9-sh-fux" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="225" y="537"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Vmw-fv-WQ7">
+            <objects>
+                <viewController id="CLR-Eq-Wfm" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="u3V-RF-eAj"/>
+                        <viewControllerLayoutGuide type="bottom" id="eIu-ax-TEw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ITC-LY-VDJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3n3-bH-IvY">
+                                <rect key="frame" x="16" y="269" width="140" height="30"/>
+                                <state key="normal" title="原声JS调用"/>
+                                <connections>
+                                    <segue destination="ioN-yo-QLW" kind="push" id="gK2-jt-KO8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fx5-1c-bAO">
+                                <rect key="frame" x="164" y="269" width="140" height="30"/>
+                                <state key="normal" title="借助第三方JS调用"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="push" id="O9A-hx-xeI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3n3-bH-IvY" firstAttribute="centerY" secondItem="ITC-LY-VDJ" secondAttribute="centerY" id="KPF-Fe-wpd"/>
+                            <constraint firstItem="Fx5-1c-bAO" firstAttribute="trailing" secondItem="ITC-LY-VDJ" secondAttribute="trailingMargin" id="OGm-gy-oD6"/>
+                            <constraint firstItem="Fx5-1c-bAO" firstAttribute="leading" secondItem="3n3-bH-IvY" secondAttribute="trailing" constant="8" id="PYe-jT-ftJ"/>
+                            <constraint firstItem="Fx5-1c-bAO" firstAttribute="width" secondItem="3n3-bH-IvY" secondAttribute="width" id="qpM-pe-nXo"/>
+                            <constraint firstItem="Fx5-1c-bAO" firstAttribute="centerY" secondItem="ITC-LY-VDJ" secondAttribute="centerY" id="rAc-nm-TkR"/>
+                            <constraint firstItem="3n3-bH-IvY" firstAttribute="leading" secondItem="ITC-LY-VDJ" secondAttribute="leadingMargin" id="z2V-p3-agE"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="N7i-0l-24h"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="568"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EQV-u7-Y1Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-106" y="223"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -30,15 +99,16 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="crP-pi-BZM"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="570" y="412"/>
+            <point key="canvasLocation" x="225" y="-96"/>
         </scene>
     </scenes>
 </document>

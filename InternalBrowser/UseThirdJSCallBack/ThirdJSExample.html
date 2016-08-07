@@ -28,14 +28,17 @@
         
         setupWebViewJavascriptBridge(function(bridge) {
                                      bridge.registerHandler('OC_Call_JS_Methods', function(data, responseCallback) {
+                                                            console.log("JS Receive Data:", data)
                                                             var responseData = { 'Javascript Says':'I receive！','JSReceiveData':data }
                                                             responseCallback(responseData)
                                                             })
                                      
                                      var callbackButton = document.getElementById('buttons')
                                      callbackButton.onclick = function(e) {
-                                     e.preventDefault()
-                                     bridge.callHandler("goToDetail",{'JSData': 'I come from JS!'})
+                                         e.preventDefault()
+                                         bridge.callHandler('goToDetail',{'JSData': 'I come from JS!'}, function responseCallback(responseData) {
+                                                            console.log("JS received response:", responseData)
+                                                        })
                                      }
                                      })
             </script>

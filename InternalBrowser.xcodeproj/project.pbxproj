@@ -8,15 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		4A247BC0825CA1B3E747B39E /* libPods-InternalBrowser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 609ABBD664B90052C1747B05 /* libPods-InternalBrowser.a */; };
+		C8C132161D57991700E17D5F /* ThirdJSExample.html in Resources */ = {isa = PBXBuildFile; fileRef = C8C132131D57991700E17D5F /* ThirdJSExample.html */; };
+		C8C132171D57991700E17D5F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8C132151D57991700E17D5F /* ViewController.m */; };
+		C8C1321B1D57996700E17D5F /* OriginalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8C1321A1D57996700E17D5F /* OriginalViewController.m */; };
+		C8C1321D1D579A6D00E17D5F /* OriginalJSExample.html in Resources */ = {isa = PBXBuildFile; fileRef = C8C1321C1D579A6D00E17D5F /* OriginalJSExample.html */; };
 		C8F916811D2E1B8F00129D49 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F916801D2E1B8F00129D49 /* main.m */; };
 		C8F916841D2E1B8F00129D49 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F916831D2E1B8F00129D49 /* AppDelegate.m */; };
-		C8F916871D2E1B8F00129D49 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F916861D2E1B8F00129D49 /* ViewController.m */; };
 		C8F9168A1D2E1B8F00129D49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8F916881D2E1B8F00129D49 /* Main.storyboard */; };
 		C8F9168C1D2E1B8F00129D49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8F9168B1D2E1B8F00129D49 /* Assets.xcassets */; };
 		C8F9168F1D2E1B8F00129D49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8F9168D1D2E1B8F00129D49 /* LaunchScreen.storyboard */; };
 		C8F9169A1D2E1B8F00129D49 /* InternalBrowserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F916991D2E1B8F00129D49 /* InternalBrowserTests.m */; };
 		C8F916A51D2E1B8F00129D49 /* InternalBrowserUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F916A41D2E1B8F00129D49 /* InternalBrowserUITests.m */; };
-		C8FD94C81D2EB58300CECBEB /* ExampleApp.html in Resources */ = {isa = PBXBuildFile; fileRef = C8FD94C71D2EB58300CECBEB /* ExampleApp.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,12 +41,16 @@
 /* Begin PBXFileReference section */
 		609ABBD664B90052C1747B05 /* libPods-InternalBrowser.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InternalBrowser.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3CD022DDB1CA0C197FD677C /* Pods-InternalBrowser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InternalBrowser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InternalBrowser/Pods-InternalBrowser.debug.xcconfig"; sourceTree = "<group>"; };
+		C8C132131D57991700E17D5F /* ThirdJSExample.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ThirdJSExample.html; sourceTree = "<group>"; };
+		C8C132141D57991700E17D5F /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		C8C132151D57991700E17D5F /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		C8C132191D57996700E17D5F /* OriginalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OriginalViewController.h; sourceTree = "<group>"; };
+		C8C1321A1D57996700E17D5F /* OriginalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OriginalViewController.m; sourceTree = "<group>"; };
+		C8C1321C1D579A6D00E17D5F /* OriginalJSExample.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = OriginalJSExample.html; sourceTree = "<group>"; };
 		C8F9167C1D2E1B8F00129D49 /* InternalBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InternalBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8F916801D2E1B8F00129D49 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C8F916821D2E1B8F00129D49 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C8F916831D2E1B8F00129D49 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C8F916851D2E1B8F00129D49 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C8F916861D2E1B8F00129D49 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		C8F916891D2E1B8F00129D49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C8F9168B1D2E1B8F00129D49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C8F9168E1D2E1B8F00129D49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,7 +61,6 @@
 		C8F916A01D2E1B8F00129D49 /* InternalBrowserUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InternalBrowserUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8F916A41D2E1B8F00129D49 /* InternalBrowserUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InternalBrowserUITests.m; sourceTree = "<group>"; };
 		C8F916A61D2E1B8F00129D49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C8FD94C71D2EB58300CECBEB /* ExampleApp.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ExampleApp.html; sourceTree = "<group>"; };
 		CCCBCE1059C6C24456786F8A /* Pods-InternalBrowser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InternalBrowser.release.xcconfig"; path = "Pods/Target Support Files/Pods-InternalBrowser/Pods-InternalBrowser.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,6 +107,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C8C132121D57987200E17D5F /* UseThirdJSCallBack */ = {
+			isa = PBXGroup;
+			children = (
+				C8C132141D57991700E17D5F /* ViewController.h */,
+				C8C132151D57991700E17D5F /* ViewController.m */,
+				C8C132131D57991700E17D5F /* ThirdJSExample.html */,
+			);
+			path = UseThirdJSCallBack;
+			sourceTree = "<group>";
+		};
+		C8C132181D57992100E17D5F /* UseOrginalJSCallBack */ = {
+			isa = PBXGroup;
+			children = (
+				C8C132191D57996700E17D5F /* OriginalViewController.h */,
+				C8C1321A1D57996700E17D5F /* OriginalViewController.m */,
+				C8C1321C1D579A6D00E17D5F /* OriginalJSExample.html */,
+			);
+			path = UseOrginalJSCallBack;
+			sourceTree = "<group>";
+		};
 		C8F916731D2E1B8F00129D49 = {
 			isa = PBXGroup;
 			children = (
@@ -127,12 +152,11 @@
 		C8F9167E1D2E1B8F00129D49 /* InternalBrowser */ = {
 			isa = PBXGroup;
 			children = (
-				C8FD94C71D2EB58300CECBEB /* ExampleApp.html */,
 				C8F916821D2E1B8F00129D49 /* AppDelegate.h */,
 				C8F916831D2E1B8F00129D49 /* AppDelegate.m */,
-				C8F916851D2E1B8F00129D49 /* ViewController.h */,
-				C8F916861D2E1B8F00129D49 /* ViewController.m */,
 				C8F916881D2E1B8F00129D49 /* Main.storyboard */,
+				C8C132181D57992100E17D5F /* UseOrginalJSCallBack */,
+				C8C132121D57987200E17D5F /* UseThirdJSCallBack */,
 				C8F9168B1D2E1B8F00129D49 /* Assets.xcassets */,
 				C8F9168D1D2E1B8F00129D49 /* LaunchScreen.storyboard */,
 				C8F916901D2E1B8F00129D49 /* Info.plist */,
@@ -274,10 +298,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8C1321D1D579A6D00E17D5F /* OriginalJSExample.html in Resources */,
 				C8F9168F1D2E1B8F00129D49 /* LaunchScreen.storyboard in Resources */,
 				C8F9168C1D2E1B8F00129D49 /* Assets.xcassets in Resources */,
 				C8F9168A1D2E1B8F00129D49 /* Main.storyboard in Resources */,
-				C8FD94C81D2EB58300CECBEB /* ExampleApp.html in Resources */,
+				C8C132161D57991700E17D5F /* ThirdJSExample.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,9 +375,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C8F916871D2E1B8F00129D49 /* ViewController.m in Sources */,
+				C8C132171D57991700E17D5F /* ViewController.m in Sources */,
 				C8F916841D2E1B8F00129D49 /* AppDelegate.m in Sources */,
 				C8F916811D2E1B8F00129D49 /* main.m in Sources */,
+				C8C1321B1D57996700E17D5F /* OriginalViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
