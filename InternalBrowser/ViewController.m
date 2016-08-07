@@ -8,10 +8,11 @@
 
 #import "ViewController.h"
 #import <WebKit/WKWebView.h>
+#import "WKWebViewJavascriptBridge.h"
 
-#define kUrl @"https://www.cmall.com/page/CN/provision.html"//https://www.cmall.com/page/CN/activity/Iron_Lady.html?clientType=ios"
+#define kUrl @"https://www.baidu.com"
 
-@interface ViewController ()
+@interface ViewController ()<WKNavigationDelegate>
 
 @property (strong, nonatomic) NSURL *url;
 
@@ -20,6 +21,8 @@
 @property (strong, nonatomic) CALayer *progressLayer;
 
 @property (strong, nonatomic) UILabel *hostLabel;
+
+@property WKWebViewJavascriptBridge* bridge;
 
 @end
 
@@ -35,9 +38,22 @@
     
     [self.webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
     
-    self.url = [NSURL URLWithString:kUrl];
-    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:self.url];
-    [self.webView loadRequest:request];
+    self.bridge = [WKWebViewJavascriptBridge bridgeForWebView:self.webView];
+    [_bridge setWebViewDelegate:self];
+    
+    [_bridge callHandler:@"OC_Call_JS_Methods" data:@{@"OC_Data":@"I come form OC"} responseCallback:^(id responseData) {
+        NSLog(@"OC_Call_JS_Methods_Back,receive JS Data:%@",responseData);
+    }];
+    [_bridge registerHandler:@"goToDetail" handler:^(id data, WVJBResponseCallback responseCallback) {
+        NSLog(@"goToDetail called: %@", data);
+        responseCallback(@"Response from OC");
+    }];
+    
+//    self.url = [NSURL URLWithString:kUrl];
+//    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:self.url];
+//    [self.webView loadRequest:request];
+    
+    [self loadHtml];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,6 +64,30 @@
 - (void)dealloc{
     [(WKWebView *)self.view removeObserver:self forKeyPath:@"estimatedProgress"];
 }
+
+- (void)loadHtml{
+    NSString* htmlPath = [[NSBundle mainBundle] pathForResource:@"ExampleApp" ofType:@"html"];
+    NSString* appHtml = [NSString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:nil];
+    self.url = [NSURL fileURLWithPath:htmlPath];
+    [self.webView loadHTMLString:appHtml baseURL:self.url];
+}
+
+#pragma mark -
+
+- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation {
+    NSLog(@"webViewDidStartLoad");
+    if (!self.title) {
+        __weak typeof(ViewController) *weakSelf = self;
+        [self.webView evaluateJavaScript:@"document.title" completionHandler:^(id _Nullable value, NSError * _Nullable error) {
+            weakSelf.title = value;
+        }];
+    }
+}
+
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
+    NSLog(@"webViewDidFinishLoad");
+}
+
 
 #pragma mark -
 
