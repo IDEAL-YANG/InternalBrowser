@@ -21,7 +21,8 @@
             callbackButton.onclick = function(e) {
                 e.preventDefault()
                 console.log("JS call goToDetail:");
-                window.webkit.messageHandlers.goToDetail.postMessage({JSData: 'I come from JS!'});
+                
+                window.webkit.messageHandlers.goToDetail.postMessage("dddddddd");
             };
         </script>
         

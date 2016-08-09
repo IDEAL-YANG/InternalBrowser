@@ -36,7 +36,7 @@
     [self.webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
     
     //OC调用JS的方法
-    [self.webView evaluateJavaScript:@"" completionHandler:^(id _Nullable value, NSError * _Nullable error) {
+    [self.webView evaluateJavaScript:@"navigator.userAgent" completionHandler:^(id _Nullable value, NSError * _Nullable error) {
         if (!error) {
             NSLog(@"----value:%@",value);
         }else{
