@@ -9,7 +9,7 @@
 #import "OriginalViewController.h"
 #import <WebKit/WebKit.h>
 
-#define kUrl @"https://www.baidu.com"
+#define kUrl @"http://www.cmall.com/page/CN/activity/amazingjianghu.html?clientType=ios"//http://m.cmall.com/page/CN/activity/custom/activity.html"
 
 @interface OriginalViewController ()<WKNavigationDelegate,WKScriptMessageHandler>
 
@@ -44,11 +44,11 @@
         }
     }];
     
-//    self.url = [NSURL URLWithString:kUrl];
-//    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:self.url];
-//    [self.webView loadRequest:request];
+    self.url = [NSURL URLWithString:kUrl];
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:self.url];
+    [self.webView loadRequest:request];
     
-    [self loadHtml];
+//    [self loadHtml];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,7 +56,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewDidAppear:(BOOL)animated{
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
     [[self.webView configuration].userContentController removeScriptMessageHandlerForName:@"goToDetail"];
 }
 
@@ -105,13 +106,14 @@
         
         self.progressLayer.frame = CGRectMake(0, 0, self.view.bounds.size.width * [change[@"new"] floatValue], 3);
         if ([change[@"new"] floatValue] == 1) {
+            __weak typeof(OriginalViewController) *weakSelf = self;
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                self.progressLayer.opacity = 0;
+                weakSelf.progressLayer.opacity = 0;
             });
             
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                self.progressLayer.frame = CGRectMake(0, 0, 0, 3);
-                self.hostLabel.text = [NSString stringWithFormat:@"网页由 %@ 提供", self.url.host];
+                weakSelf.progressLayer.frame = CGRectMake(0, 0, 0, 3);
+                weakSelf.hostLabel.text = [NSString stringWithFormat:@"网页由 %@ 提供", self.url.host];
             });
         }
     }

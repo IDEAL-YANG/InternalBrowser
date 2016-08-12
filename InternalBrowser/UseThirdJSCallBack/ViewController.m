@@ -10,7 +10,7 @@
 #import <WebKit/WebKit.h>
 #import "WKWebViewJavascriptBridge.h"
 
-#define kUrl @"https://www.baidu.com"
+#define kUrl @"http://www.cmall.com/page/CN/activity/amazingjianghu.html?clientType=ios"
 
 @interface ViewController ()<WKNavigationDelegate>
 
@@ -40,14 +40,13 @@
     
     self.bridge = [WKWebViewJavascriptBridge bridgeForWebView:self.webView];
     // 开启日志，方便调试
-    [WKWebViewJavascriptBridge enableLogging];
+//    [WKWebViewJavascriptBridge enableLogging];
+    [self.bridge setWebViewDelegate:self];
     
-    [_bridge setWebViewDelegate:self];
-    
-    [_bridge callHandler:@"OC_Call_JS_Methods" data:@{@"OC_Data":@"I come form OC"} responseCallback:^(id responseData) {
+    [self.bridge callHandler:@"OC_Call_JS_Methods" data:@{@"OC_Data":@"I come form OC"} responseCallback:^(id responseData) {
         NSLog(@"OC_Call_JS_Methods_Back,receive JS Data:%@",responseData);
     }];
-    [_bridge registerHandler:@"goToDetail" handler:^(id data, WVJBResponseCallback responseCallback) {
+    [self.bridge registerHandler:@"goToDetail" handler:^(id data, WVJBResponseCallback responseCallback) {
         NSLog(@"goToDetail called: %@", data);
         responseCallback(@"Response from OC");
     }];
@@ -64,7 +63,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewDidAppear:(BOOL)animated{
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    [self.bridge setWebViewDelegate:nil];
 }
 
 - (void)dealloc{
@@ -107,13 +108,14 @@
         
         self.progressLayer.frame = CGRectMake(0, 0, self.view.bounds.size.width * [change[@"new"] floatValue], 3);
         if ([change[@"new"] floatValue] == 1) {
+            __weak typeof(ViewController) *weakSelf = self;
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                self.progressLayer.opacity = 0;
+                weakSelf.progressLayer.opacity = 0;
             });
             
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                self.progressLayer.frame = CGRectMake(0, 0, 0, 3);
-                self.hostLabel.text = [NSString stringWithFormat:@"网页由 %@ 提供", self.url.host];
+                weakSelf.progressLayer.frame = CGRectMake(0, 0, 0, 3);
+                weakSelf.hostLabel.text = [NSString stringWithFormat:@"网页由 %@ 提供", weakSelf.url.host];
             });
         }
     }

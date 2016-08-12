@@ -17,6 +17,20 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    @autoreleasepool {
+        UIWebView* tempWebView = [[UIWebView alloc] initWithFrame:CGRectZero];
+        NSString *secretAgent = [tempWebView stringByEvaluatingJavaScriptFromString:@"navigator.userAgent"];
+        NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+        NSString *app_version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+        NSString *newUagent = [NSString stringWithFormat:@"%@ CreativeMall/%@",secretAgent,app_version];
+        NSDictionary *dictionary = [[NSDictionary alloc]
+                                    initWithObjectsAndKeys:newUagent, @"UserAgent", nil];
+        [[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
+#if !__has_feature(objc_arc)
+        [tempWebView release];
+#endif
+    }
+    
     return YES;
 }
 

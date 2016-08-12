@@ -14,7 +14,7 @@
         <h1>WebViewJavascriptBridge Demo</h1>
         
         <script>
-            function setupWebViewJavascriptBridge(callback) {
+            function connectWebViewJavascriptBridge(callback) {
                 if (window.WebViewJavascriptBridge) { return callback(WebViewJavascriptBridge); }
                 if (window.WVJBCallbacks) { return window.WVJBCallbacks.push(callback); }
                 window.WVJBCallbacks = [callback];
@@ -26,9 +26,8 @@
                 setTimeout(function() { document.documentElement.removeChild(WVJBIframe) }, 0)
             }
         
-        setupWebViewJavascriptBridge(function(bridge) {
+        connectWebViewJavascriptBridge(function(bridge) {
                                      bridge.registerHandler('OC_Call_JS_Methods', function(data, responseCallback) {
-                                                            console.log("JS Receive Data:", data)
                                                             var responseData = { 'Javascript Says':'I receive！','JSReceiveData':data }
                                                             responseCallback(responseData)
                                                             })
@@ -37,7 +36,6 @@
                                      callbackButton.onclick = function(e) {
                                          e.preventDefault()
                                          bridge.callHandler('goToDetail',{'JSData': 'I come from JS!'}, function responseCallback(responseData) {
-                                                            console.log("JS received response:", responseData)
                                                         })
                                      }
                                      })
