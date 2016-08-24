@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4A247BC0825CA1B3E747B39E /* libPods-InternalBrowser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 609ABBD664B90052C1747B05 /* libPods-InternalBrowser.a */; };
+		C83D6F4B1D5F105B0046D6AA /* newbridge.js in Resources */ = {isa = PBXBuildFile; fileRef = C83D6F4A1D5F105B0046D6AA /* newbridge.js */; };
 		C8C132161D57991700E17D5F /* ThirdJSExample.html in Resources */ = {isa = PBXBuildFile; fileRef = C8C132131D57991700E17D5F /* ThirdJSExample.html */; };
 		C8C132171D57991700E17D5F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8C132151D57991700E17D5F /* ViewController.m */; };
 		C8C1321B1D57996700E17D5F /* OriginalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8C1321A1D57996700E17D5F /* OriginalViewController.m */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		609ABBD664B90052C1747B05 /* libPods-InternalBrowser.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InternalBrowser.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3CD022DDB1CA0C197FD677C /* Pods-InternalBrowser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InternalBrowser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InternalBrowser/Pods-InternalBrowser.debug.xcconfig"; sourceTree = "<group>"; };
+		C83D6F4A1D5F105B0046D6AA /* newbridge.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = newbridge.js; path = ../../../../Desktop/newbridge.js; sourceTree = "<group>"; };
 		C8C132131D57991700E17D5F /* ThirdJSExample.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ThirdJSExample.html; sourceTree = "<group>"; };
 		C8C132141D57991700E17D5F /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		C8C132151D57991700E17D5F /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				C8C132141D57991700E17D5F /* ViewController.h */,
 				C8C132151D57991700E17D5F /* ViewController.m */,
 				C8C132131D57991700E17D5F /* ThirdJSExample.html */,
+				C83D6F4A1D5F105B0046D6AA /* newbridge.js */,
 			);
 			path = UseThirdJSCallBack;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 			files = (
 				C8C1321D1D579A6D00E17D5F /* OriginalJSExample.html in Resources */,
 				C8F9168F1D2E1B8F00129D49 /* LaunchScreen.storyboard in Resources */,
+				C83D6F4B1D5F105B0046D6AA /* newbridge.js in Resources */,
 				C8F9168C1D2E1B8F00129D49 /* Assets.xcassets in Resources */,
 				C8F9168A1D2E1B8F00129D49 /* Main.storyboard in Resources */,
 				C8C132161D57991700E17D5F /* ThirdJSExample.html in Resources */,

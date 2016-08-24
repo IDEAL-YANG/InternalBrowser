@@ -10,7 +10,14 @@
 #import <WebKit/WebKit.h>
 #import "WKWebViewJavascriptBridge.h"
 
-#define kUrl @"http://www.cmall.com/page/CN/activity/amazingjianghu.html?clientType=ios"
+#define kUrl @"http://www.baidu.com"
+
+#define LBDispatch_main_async_safe(block)\
+if ([NSThread isMainThread]) {\
+block();\
+} else {\
+dispatch_async(dispatch_get_main_queue(), block);\
+}
 
 @interface ViewController ()<WKNavigationDelegate>
 
@@ -38,17 +45,24 @@
     
     [self.webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
     
+    //OC调用JS的方法
+    [self.webView evaluateJavaScript:@"navigator.userAgent" completionHandler:^(id _Nullable value, NSError * _Nullable error) {
+        if (!error) {
+            NSLog(@"----value:%@",value);
+        }else{
+            NSLog(@"----evaluteError:%@",error);
+        }
+    }];
+    
     self.bridge = [WKWebViewJavascriptBridge bridgeForWebView:self.webView];
-    // 开启日志，方便调试
-//    [WKWebViewJavascriptBridge enableLogging];
     [self.bridge setWebViewDelegate:self];
     
-    [self.bridge callHandler:@"OC_Call_JS_Methods" data:@{@"OC_Data":@"I come form OC"} responseCallback:^(id responseData) {
-        NSLog(@"OC_Call_JS_Methods_Back,receive JS Data:%@",responseData);
-    }];
     [self.bridge registerHandler:@"goToDetail" handler:^(id data, WVJBResponseCallback responseCallback) {
         NSLog(@"goToDetail called: %@", data);
-        responseCallback(@"Response from OC");
+        LBDispatch_main_async_safe((^{
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"sadfsdf" message:@"asdfasdfasdf" delegate:nil cancelButtonTitle:@"dafsdf" otherButtonTitles:@"dsafa", nil];
+            [alertView show];
+        }));
     }];
     
 //    self.url = [NSURL URLWithString:kUrl];

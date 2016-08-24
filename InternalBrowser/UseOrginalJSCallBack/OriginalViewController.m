@@ -9,7 +9,7 @@
 #import "OriginalViewController.h"
 #import <WebKit/WebKit.h>
 
-#define kUrl @"http://www.cmall.com/page/CN/activity/amazingjianghu.html?clientType=ios"//http://m.cmall.com/page/CN/activity/custom/activity.html"
+#define kUrl @"http://www.baidu.com"
 
 @interface OriginalViewController ()<WKNavigationDelegate,WKScriptMessageHandler>
 
@@ -43,12 +43,12 @@
             NSLog(@"----evaluteError:%@",error);
         }
     }];
+
+//    self.url = [NSURL URLWithString:kUrl];
+//    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:self.url];
+//    [self.webView loadRequest:request];
     
-    self.url = [NSURL URLWithString:kUrl];
-    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:self.url];
-    [self.webView loadRequest:request];
-    
-//    [self loadHtml];
+    [self loadHtml];
 }
 
 - (void)didReceiveMemoryWarning {

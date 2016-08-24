@@ -35,15 +35,21 @@
                                      var callbackButton = document.getElementById('buttons')
                                      callbackButton.onclick = function(e) {
                                          e.preventDefault()
-                                         bridge.callHandler('goToDetail',{'JSData': 'I come from JS!'}, function responseCallback(responseData) {
-                                                        })
+                                         bridge.callHandler('goToDetail',{'JSData': 'I come from JS!'}, function responseCallback(responseData) {})
                                      }
-                                     })
+                                       
+                                       var callbackImage = document.getElementById('haha')
+                                       callbackImage.onclick = function(e) {
+                                           e.preventDefault()
+                                           bridge.callHandler('clickImage',{'imageUrl': 'haha'}, function responseCallback(responseData) {})
+                                       }
+         })
             </script>
         
         <div>
             <button id="buttons">Click goToDetail</button>
         </div>
+        <p style="text-align: center;"><img id="haha" src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=718461085,2171171678&fm=170&s=03809C4D4AABC44D163E6E3B0300905B&w=450&h=298&img.JPEG" data-width="790" data-height="750" style="max-width:100%;"/></p>
         
     </body>
 
